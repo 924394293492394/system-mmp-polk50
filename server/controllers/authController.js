@@ -4,16 +4,21 @@ const jwt = require('jsonwebtoken');
 
 exports.register = async (req, res) => {
   try {
-    const { username, password, role } = req.body;
+    const { username, password, role, position, office } = req.body;
 
-    if (!username || !password || !role) {
+    if (!username || !password || !role || !position || !office) {
       return res.status(400).json({ message: 'Все поля обязательны' });
     }
 
-    // Можно добавить проверку, что роль входит в допустимые
     const validRoles = ['сотрудник', 'бригадир', 'начальник', 'администратор'];
+    const validOffices = [50, 57];
+
     if (!validRoles.includes(role)) {
       return res.status(400).json({ message: 'Недопустимая роль' });
+    }
+
+    if (!validOffices.includes(Number(office))) {
+      return res.status(400).json({ message: 'Офис должен быть 50 или 57' });
     }
 
     const existingUser = await User.findOne({ username });
@@ -24,7 +29,9 @@ exports.register = async (req, res) => {
     const user = new User({
       username,
       password: hashedPassword,
-      role
+      role,
+      position,
+      office: Number(office)
     });
 
     await user.save();

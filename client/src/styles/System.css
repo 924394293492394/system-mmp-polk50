@@ -1,0 +1,122 @@
+.system-wrapper {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    background-color: #f9f9f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* шапка */
+.system-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2563eb;
+    color: white;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+/* лого */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* основные вкладки внутри шапки */
+.main-tabs {
+    position: absolute;
+    left: 150px;
+    right: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* кнопки вкладок */
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-bottom: 3px solid transparent;
+    justify-content: right;
+    transition: border 0.2s, background-color 0.2s;
+}
+
+.tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.tab-btn.active {
+    border-bottom: 3px solid #fff;
+    font-weight: bold;
+}
+
+/* кнопка выхода */
+.logout-btn {
+    background-color: #ef4444;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #dc2626;
+}
+
+/* подвкладки */
+.sub-tabs {
+    display: flex;
+    background-color: #f3f4f6;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    justify-content: center;
+    gap: 15px;
+}
+
+.subtab-btn {
+    padding: 0.4rem 0.8rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.subtab-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.subtab-btn.active {
+    background-color: #dbeafe;
+    font-weight: bold;
+}
+
+/* контент */
+.content-area {
+    flex: 1;
+    padding: 2rem;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.content-area h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.content-area p {
+    color: #666;
+    font-size: 1rem;
+}

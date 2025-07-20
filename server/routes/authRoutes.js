@@ -10,4 +10,8 @@ router.get('/check', authMiddleware, (req, res) => {
   res.json({ message: 'Вы авторизованы!', user: req.user });
 });
 
+router.get('/verify', authMiddleware, (req, res) => {
+  res.json({ valid: true, user: req.user });
+});
+
 module.exports = router;
